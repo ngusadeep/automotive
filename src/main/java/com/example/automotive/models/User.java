@@ -2,6 +2,7 @@ package com.example.automotive.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.management.relation.Role;
 import java.util.Collection;
 import java.util.List;
-
 
 @Entity
 @Data
@@ -26,8 +26,10 @@ public class User implements UserDetails {
     private long id;
 
     @Email
+    @NotBlank
     private String email;
 
+    @NotBlank
     private String password;
 
     @Enumerated(EnumType.STRING)
